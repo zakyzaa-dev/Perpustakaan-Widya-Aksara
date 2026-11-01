@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Attributes\Guarded;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Override;
 
 #[Guarded('id_peminjaman')]
 class Peminjaman extends Model
@@ -30,6 +31,16 @@ class Peminjaman extends Model
 
     public function pengembalian(): HasOne
     {
-        return $this->hasOne(Pengembalian::class, 'id_pengembalian', 'id_pengembalian');
+        return $this->hasOne(Pengembalian::class, 'id_peminjaman', 'id_peminjaman');
+    }
+
+
+    #[Override]
+    protected function casts()
+    {
+        return [
+            'tanggal_pinjam' => 'date',
+            'tanggal_harus_kembali' => 'date',
+        ];
     }
 }

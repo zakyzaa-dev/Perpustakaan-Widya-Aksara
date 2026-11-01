@@ -7,6 +7,7 @@
             <b>{{ session('success') }}</b>
         </div>
     @endif
+
     <div class="card">
         <div class="card-header py-3 d-flex align-items-center justify-content-between">
             <h6 class="m-0 font-weight-bold text-primary">Data Buku</h6>

@@ -2,16 +2,6 @@
     <h3 class="mt-3 text-dark mb-1">Tambah Buku</h3>
     <p class="text-muted small">Menambahkan data buku baru untuk Perpustakaan Widya Aksara.</p>
 
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $item)
-                    <li>{{ $item }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
-
     <div class="card">
         <div class="card-header py-3">
             <h6 class="m-0 text-primary fw-bold">Form Tambah Buku</h6>
@@ -56,8 +46,12 @@
                         </div>
                         <div class="col-md-6 col-12 mb-3">
                             <label for="stok" class="form-label mb-1">Stok</label>
-                            <input type="number" name="stok" id="stok" class="form-control" placeholder="67"
+                            <input type="number" name="stok" id="stok"
+                                class="form-control @error('stok') is-invalid @enderror" placeholder="67"
                                 value="{{ old('stok') }}" min="1">
+                            @error('stok')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
                         </div>
                     </div>
                 </div>
