@@ -39,7 +39,7 @@ new class extends Component {
 
 <div>
     <input type="text" wire:model.live.debounce.300.ms="search" name="search" id="search" class="form-control mb-3"
-        placeholder="Cara data peminjaman berdasarkan nama peminjam dan status peminjaman...">
+        placeholder="Cari data peminjaman berdasarkan nama peminjam dan status peminjaman...">
 
     <table class="table-striped table-bordered table">
         <thead>

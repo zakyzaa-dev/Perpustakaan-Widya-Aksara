@@ -44,6 +44,7 @@ class PeminjamanController extends Controller
             'tanggal_harus_kembali' => ['required', 'date', 'after_or_equal:tanggal_pinjam'],
         ]);
 
+        Buku::findOrFail($validated['id_buku'])->decrement('stok');
         $peminjamanNew = Peminjaman::create($validated);
         $lamaPinjam = Carbon::parse($validated['tanggal_pinjam'])->diffInDays($validated['tanggal_harus_kembali']);
 
