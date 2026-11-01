@@ -64,7 +64,7 @@ class BukuController extends Controller
         $validated = $request->validate([
             'judul_buku' => ['required', 'string', 'max:150'],
             'penulis' => ['required', 'string', 'max:100'],
-            'kode_buku' => ['required', 'string', 'max:20', 'unique:buku,kode_buku,' . $buku->id_buku],
+            'kode_buku' => ['required', 'string', 'max:20', 'unique:buku,kode_buku,' . $buku->id_buku . ',id_buku'],
             'stok' => ['required', 'numeric', 'min:1'],
         ]);
 
