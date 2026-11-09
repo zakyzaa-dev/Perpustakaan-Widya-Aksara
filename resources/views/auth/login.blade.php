@@ -48,6 +48,9 @@
                         <button type="submit" class="btn btn-primary w-100 py-2 fw-semibold">Login</button>
                     </form>
                 </div>
+                <p class="small text-center">Belum punya akun? <a href="{{ route('register') }}"
+                        class="font-weight-bold text-decoration-none">Daftar
+                        disini</a></p>
             </div>
         </div>
     </div>

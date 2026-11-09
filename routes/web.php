@@ -18,10 +18,13 @@ Route::middleware('auth')->group(function () {
     Route::resource('peminjaman', PeminjamanController::class);
     Route::resource('pengembalian', PengembalianController::class);
     Route::resource('anggota', AnggotaController::class)->parameters ([
-        'anggota' => 'anggota'
-]);
+        'anggota' => 'anggota']);
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });
 
-Route::get('/login', [AuthController::class, 'create'])->name('login');
-Route::post('/login', [AuthController::class, 'login']);
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::middleware('guest')->group(function () {
+    Route::get('/login', [AuthController::class, 'create'])->name('login');
+    Route::post('/login', [AuthController::class, 'login']);
+    Route::get('/register', [AuthController::class, 'createRegister'])->name('register');
+    Route::post('/register', [AuthController::class, 'register']);
+});
