@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AnggotaController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PetugasController;
 use App\Http\Controllers\BukuController;
 use App\Http\Controllers\DashboardController;
@@ -18,3 +19,5 @@ Route::resource('pengembalian', PengembalianController::class);
 Route::resource('anggota', AnggotaController::class)->parameters ([
     'anggota' => 'anggota'
 ]);
+
+Route::get('/login', [AuthController::class, 'create'])->name('login');

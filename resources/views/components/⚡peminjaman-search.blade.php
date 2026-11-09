@@ -45,8 +45,8 @@ new class extends Component {
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Nama Petugas</th>
                 <th>Nama Peminjam</th>
+                <th>Nama Petugas</th>
                 <th>Judul Buku</th>
                 <th>Tanggal Pinjam</th>
                 <th>Tanggal Kembali</th>
@@ -58,9 +58,9 @@ new class extends Component {
             @forelse ($peminjamans as $item)
                 <tr>
                     <td>{{ $item->id_peminjaman }}</td>
+                    <td>{{ $item->anggota?->nama_anggota ?? 'Tidak ada nama' }}</td>
                     <td>{{ $item->petugas?->nama_petugas ?? 'Tidak ada nama' }} ({{ $item->petugas?->username ?? '-' }})
                     </td>
-                    <td>{{ $item->anggota?->nama_anggota ?? 'Tidak ada nama' }}</td>
                     <td>{{ $item->buku?->judul_buku ?? 'Tidak ada judul' }}</td>
                     <td>{{ $item->tanggal_pinjam?->format('d F Y') ?? '-' }}</td>
                     <td>{{ $item->tanggal_harus_kembali?->format('d F Y') ?? '-' }}</td>
