@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id('id_petugas');
             $table->string('nama_petugas', 100);
             $table->string('username', 50);
+            $table->string('password');
             $table->string('jabatan', 50);
             $table->timestamps();
         });

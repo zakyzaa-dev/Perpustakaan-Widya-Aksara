@@ -1,6 +1,12 @@
 <x-layouts.app title="Dashboard">
     <h3 class="text-dark mt-3 mb-1">Dashboard</h3>
 
+    <div class="card shadow">
+        <div class="card-body">
+            <h3 class="font-weight-bold text-dark">Selamat Datang {{ Auth::user()->nama_petugas }}!</h3>
+        </div>
+    </div>
+
     <div class="row mt-3">
         <x-card-stats title="Jumlah Petugas" color="primary" icon="fa-user" :value="$jumlahPetugas . ' ' . 'Petugas'"></x-card-stats>
         <x-card-stats title="Jumlah Anggota" color="success" icon="fa-users" :value="$jumlahAnggota . ' ' . 'Anggota'"></x-card-stats>

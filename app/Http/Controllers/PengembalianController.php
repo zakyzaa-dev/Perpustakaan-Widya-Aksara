@@ -73,12 +73,6 @@ class PengembalianController extends Controller
 
         return redirect()->route('pengembalian.index')->with('success', 'Berhasil mengembalikan peminjaman buku' . ($detailPeminjaman->buku?->judul_buku ?? '-') );
 
-        // KALO DEBUG DIPIKIR MAS AOKWOW
-        // echo "Judul Buku: {$detailPeminjaman->buku?->judul_buku} <br>";
-        // echo "Tanggal Pinjam Buku: {$detailPeminjaman->tanggal_pinjam->format('d F Y')} <br>";
-        // echo "Tanggal Harus Kembali Buku: {$detailPeminjaman->tanggal_harus_kembali->format('d F Y')} <br>";
-        // echo "Tanggal Pengembalian Buku: {$tanggalKembali->format('d F Y')} <br>";
-        // echo "Telat Hari: $telatHari";
     }
 
     /**

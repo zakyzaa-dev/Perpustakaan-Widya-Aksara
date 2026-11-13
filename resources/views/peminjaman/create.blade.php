@@ -66,18 +66,10 @@
                     {{-- DATA ANGGOTA --}}
                     <div class="col-12 col-md-4">
                         <div class="mb-3">
-                            <label for="id_anggota" class="form-label">Daftar Petugas</label>
-                            <select name="id_petugas" id="id_petugas"
-                                class="custom-select @error('id_petugas') is-invalid @enderror" required>
-                                <option value="" disabled selected><--Pilih petugas--></option>
-                                @forelse ($officers as $item)
-                                    <option value="{{ $item->id_petugas }}"
-                                        {{ old('id_petugas') == $item->id_petugas ? 'selected' : '' }}>
-                                        {{ $item->nama_petugas }}</option>
-                                @empty
-                                    <option value="" disabled>Belum ada petugas terdaftar!</option>
-                                @endforelse
-                            </select>
+                            <label for="id_petugas" class="form-label">Petugas</label>
+                            <input type="hidden" name="id_petugas" value="{{ $officers->id_petugas }}">
+                            <input type="text" name="petugas_name" value="{{ $officers->nama_petugas }}" readonly
+                                class="form-control">
                             @error('id_petugas')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror

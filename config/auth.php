@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Petugas;
 use App\Models\User;
 
 return [
@@ -42,6 +43,10 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'petugas' => [
+            'driver' => 'session',
+            'provider' => 'petugas',
+        ]
     ],
 
     /*
@@ -65,6 +70,10 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => env('AUTH_MODEL', User::class),
+        ],
+        'petugas' => [
+            'driver' => 'eloquent',
+            'model' => env('AUTH_MODEL', Petugas::class)
         ],
 
         // 'users' => [

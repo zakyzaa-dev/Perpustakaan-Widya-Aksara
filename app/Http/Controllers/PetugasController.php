@@ -32,6 +32,7 @@ class PetugasController extends Controller
             'nama_petugas' => ['required', 'string', 'max:100'],
             'jabatan' => ['required', 'string', 'max:50'],
             'username' => ['required', 'string', 'max:50', 'unique:petugas,username'],
+            'password' => ['required', 'string', 'min:8'],
         ]);
 
         $petugasNew = Petugas::create($validated);
@@ -62,7 +63,8 @@ class PetugasController extends Controller
         $validated = $request->validate([
             'nama_petugas' => ['required', 'string', 'max:100'],
             'jabatan' => ['required', 'string', 'max:50'],
-            'username' => ['required', 'string', 'max:50', 'unique:petugas,username'],
+            'username' => ['required', 'string', 'max:50', 'unique:petugas,username,' . $petuga->id_petugas . ',id_petugas'],
+            'password' => ['required', 'string', 'min:8'],
         ]);
 
         $petuga->update($validated);

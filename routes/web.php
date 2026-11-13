@@ -10,7 +10,11 @@ use App\Http\Controllers\PengembalianController;
 use Illuminate\Support\Facades\Route;
 
 // Route for dashbaord
-Route::middleware('auth')->group(function () {
+Route::get('/', function () {
+    return redirect('/login');
+});
+
+Route::middleware(['auth:petugas'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::resource('petugas', PetugasController::class);
@@ -23,8 +27,8 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware('guest')->group(function () {
-    Route::get('/login', [AuthController::class, 'create'])->name('login');
     Route::post('/login', [AuthController::class, 'login']);
+    Route::get('/login', [AuthController::class, 'create'])->name('login');
     Route::get('/register', [AuthController::class, 'createRegister'])->name('register');
     Route::post('/register', [AuthController::class, 'register']);
 });

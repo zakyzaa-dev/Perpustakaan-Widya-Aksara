@@ -23,7 +23,7 @@
                 {{-- INPUT USERNAME SAMS JABATAN --}}
                 <div class="mb-3">
                     <div class="row">
-                        <div class="col-md-6 col-12 mb-3">
+                        <div class="col-md-4 col-12 mb-3">
                             <label for="username" class="form-label mb-1">Username</label>
                             <input type="text" name="username" id="username"
                                 class="form-control @error('username') is-invalid @enderror" placeholder="kumaminji"
@@ -32,7 +32,7 @@
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
-                        <div class="col-md-6 col-12 mb-3">
+                        <div class="col-md-4 col-12 mb-3">
                             <label for="jabatan" class="form-label mb-1">Jabatan</label>
                             <input type="text" name="jabatan" id="jabatan"
                                 class="form-control @error('jabatan') is-invalid @enderror"
@@ -41,8 +41,18 @@
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
+                        <div class="col-md-4 col-12 mb-3">
+                            <label for="password" class="form-label mb-1">Password</label>
+                            <input type="text" name="password" id="password"
+                                class="form-control @error('password') is-invalid @enderror"
+                                placeholder="jakasembungbawagolok@12344" value="{{ old('password') }}" maxlength="50">
+                            @error('password')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
                     </div>
                 </div>
+                {{-- PASSWORD DAN EMAIL --}}
                 <button type="submit" class="btn-success btn">Tambahkan Petugas Baru</button>
             </form>
         </div>

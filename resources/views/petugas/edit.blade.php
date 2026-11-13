@@ -44,6 +44,28 @@
                             @enderror
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-md-6 col-12 mb-3">
+                            <label for="email" class="form-label mb-1">Email</label>
+                            <input type="email" name="email" id="email"
+                                class="form-control @error('email') is-invalid @enderror"
+                                placeholder="kumaminji@perpustakaan.com" value="{{ old('email', $petuga->email) }}"
+                                maxlength="50">
+                            @error('email')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="col-md-6 col-12 mb-3">
+                            <label for="password" class="form-label mb-1">Password</label>
+                            <input type="text" name="password" id="password"
+                                class="form-control @error('password') is-invalid @enderror"
+                                placeholder="jakasembungbawagolok@12344"
+                                value="{{ old('password', $petuga->password) }}" maxlength="50">
+                            @error('password')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
                 </div>
                 <button type="submit" class="btn-warning btn">Update Data Petugas</button>
             </form>

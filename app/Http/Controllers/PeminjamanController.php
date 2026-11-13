@@ -8,6 +8,7 @@ use App\Models\Peminjaman;
 use App\Models\Petugas;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PeminjamanController extends Controller
 {
@@ -26,7 +27,7 @@ class PeminjamanController extends Controller
     {
         $members = Anggota::all();
         $books = Buku::where('stok', '>', 0)->latest()->get();
-        $officers = Petugas::all();
+        $officers = Auth::user();
 
         return view('peminjaman.create', compact('members', 'books', 'officers'));
     }
@@ -44,7 +45,6 @@ class PeminjamanController extends Controller
             'tanggal_harus_kembali' => ['required', 'date', 'after_or_equal:tanggal_pinjam'],
         ]);
 
-        // Buku::findOrFail($validated['id_buku'])->decrement('stok'); // Mengurangi stok
         Buku::where('id_buku', $validated['id_buku'])
             ->where('stok', '>', 0)
             ->firstOrFail()
